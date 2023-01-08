@@ -1,0 +1,28 @@
+#!/bin/sh
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+insmod pawny.ko
+sysctl -w kernel.perf_event_paranoid=3
+sysctl -w kernel.dmesg_restrict=1
+clear
+mkdir /tmp
+chown 1000.1000 /tmp
+chown -R 1000.1000 /home/
+chmod 600 /flag
+chown 0.0 /flag
+
+
+echo "╭━━━╮╱╱╱╱╱╱╱╭╮╱╭━━━┳━━━━┳━━━┳━━━┳━━━┳━━━┳━━━╮"
+echo "┃╭━╮┃╱╱╱╱╱╱╱┃┃╱┃╭━╮┃╭╮╭╮┃╭━━┫╭━╮┃╭━╮┃╭━╮┃╭━╮┃"
+echo "┃╰━━┳━━┳━━┳━┫┃╭┫┃╱╰┻╯┃┃╰┫╰━━╋╯╭╯┃┃┃┃┣╯╭╯┣╯╭╯┃"
+echo "╰━━╮┃╭╮┃╭╮┃╭┫╰╯┫┃╱╭╮╱┃┃╱┃╭━━╋━╯╭┫┃┃┃┣━╯╭╋━╯╭╯"
+echo "┃╰━╯┃╰╯┃╭╮┃┃┃╭╮┫╰━╯┃╱┃┃╱┃┃╱╱┃┃╰━┫╰━╯┃┃╰━┫┃╰━╮"
+echo "╰━━━┫╭━┻╯╰┻╯╰╯╰┻━━━╯╱╰╯╱╰╯╱╱╰━━━┻━━━┻━━━┻━━━╯"
+echo "╱╱╱╱┃┃"
+echo "╱╱╱╱╰╯"
+echo "|      "
+echo "|      "
+echo "|      "
+echo "|      "
+exec su -l ctf
